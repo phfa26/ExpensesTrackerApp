@@ -1,0 +1,124 @@
+<h1>Home</h1>
+
+<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+<a class="navbar-brand col-sm-3 col-md-2 mr-0" href="/user"><i class="fas fa-comments-dollar"></i> My Expenses</a>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+      <div class="sidebar-sticky">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link active" href="/user">
+              <span data-feather="home"></span>
+              <i class="fas fa-chart-line"></i> Dashboard <span class="sr-only">(current)</span>
+            </a>
+          </li>
+        </ul>
+
+        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+          <span><i class="fas fa-coins"></i> Expenses</span>
+          <a class="d-flex align-items-center text-muted" href="#">
+            <span data-feather="plus-circle"></span>
+          </a>
+        </h6>
+        <ul class="nav flex-column mb-2">
+          <li class="nav-item">
+            <a class="nav-link" href="/expenses/new" data-toggle="modal" data-target="#exampleModalLive">
+              <span data-feather="file-text"></span>
+              <i class="fas fa-plus"></i> Add
+            </a>
+          </li>
+        </ul>
+        <ul class="nav flex-column mb-2">
+          <li class="nav-item">
+            <a class="nav-link" href="/expenses" data-toggle="modal" data-target="#exampleModalLive">
+              <span data-feather="file-text"></span>
+              <i class="far fa-edit"></i> Edit Expenses
+            </a>
+          </li>
+        </ul>
+        <br>
+        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+          <span><i class="fas fa-coins"></i> Settings</span>
+          <a class="d-flex align-items-center text-muted" href="#">
+            <span data-feather="plus-circle"></span>
+          </a>
+        </h6>
+        <ul class="nav flex-column mb-2">
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/new" data-toggle="modal" data-target="#exampleModalLive">
+              <span data-feather="file-text"></span>
+              <i class="fas fa-plus"></i> Add Category
+            </a>
+          </li>
+        </ul>
+        <ul class="nav flex-column mb-2">
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/" data-toggle="modal" data-target="#exampleModalLive">
+              <span data-feather="file-text"></span>
+              <i class="far fa-edit"></i> Edit Categories
+            </a>
+          </li>
+        </ul>
+
+        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+          <span><i class="fas fa-coins"></i> User</span>
+          <a class="d-flex align-items-center text-muted" href="#">
+            <span data-feather="plus-circle"></span>
+          </a>
+        </h6>
+        <ul class="nav flex-column mb-2">
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/" data-toggle="modal" data-target="#exampleModalLive">
+              <span data-feather="file-text"></span>
+              <i class="far fa-edit"></i> Change password
+            </a>
+          </li>
+        </ul>
+        <ul class="nav flex-column mb-2">
+          <li class="nav-item">
+            <a class="nav-link" rel="nofollow" data-method="delete" href="/login">
+              <span data-feather="file-text"></span>
+              <i class="fas fa-sign-out-alt"></i> Logout
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2"> <%= @user.name %>'s Expenses</h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+        </div>
+      </div>
+
+      <h4>All Expenses</h4>
+      <div class="table-responsive">
+        <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th><i class="fas fa-receipt"></i> Expense</th>
+              <th><i class="far fa-calendar-alt"></i> Date</th>
+              <th><i class="fas fa-money-bill-wave"></i> Value</th>
+              <th><i class="fas fa-list"></i> Category</th>
+              <th> <i class="far fa-edit"></i> Edit/Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @expenses.each do |expense| %>
+              <tr>
+                <td><i class="fas fa-receipt"></i> <%= expense.name %></td>
+                <td><i class="fas fa-calendar-day"></i> <%= expense.when %></td>
+                <td><i class="fas fa-dollar-sign"></i> <%= expense.value %></td>
+                <td><i class="fas fa-list"></i> <%= expense.category.name %></td>
+                <td><a href="/expenses/<%=expense.id.to_s%>/edit" ><i class="far fa-edit"></i></a></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+</div>

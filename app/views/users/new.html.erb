@@ -1,0 +1,63 @@
+<h1>Home</h1>
+
+<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+<a class="navbar-brand col-sm-3 col-md-2 mr-0" href="/user"><i class="fas fa-comments-dollar"></i> My Expenses</a>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+      <div class="sidebar-sticky">
+
+        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+          <span><i class="fas fa-coins"></i> User</span>
+          <a class="d-flex align-items-center text-muted" href="#">
+            <span data-feather="plus-circle"></span>
+          </a>
+        </h6>
+        <ul class="nav flex-column mb-2">
+          <li class="nav-item">
+            <a class="nav-link" rel="nofollow" data-method="get" href="/">
+              <span data-feather="file-text"></span>
+              <i class="fas fa-home"></i> Home
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <div class="btn-toolbar mb-2 mb-md-0">
+        </div>
+      </div>
+      <h2>Create An Account</h2>
+
+      <% if flash[:errors].present? %>
+        <strong>Please correct the following errors:</strong>
+        <ol>
+          <% flash[:errors].each do |e| %>
+            <li><%= e %></li>
+          <% end %>
+        </ol>
+
+      <% end %>
+
+      <%= form_for @user do |f| %>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+        <br>
+        <%= f.label :email %>
+        <%= f.text_field :email %>
+        <br>
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+        <br>
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation %>
+        <br>
+        <button type="submit" name="commit" data-disable-with="Create User" class="btn btn-sm btn-outline-secondary"><i class="fas fa-user-plus"></i> Sign Up</button>
+
+      <% end %>
+    </main>
+  </div>
+</div>
