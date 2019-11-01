@@ -93,7 +93,20 @@
         </div>
       </div>
 
-      <div>
+      <div class="mx-auto" style="width: 450px;">
+      <div class='form-content'>
+      <h2>Add category</h2>
+      <%= form_for @category do |f| %>
+        <%= f.label :category_name %>
+        <%= f.text_field :name %>
+      <br><br>
+      <button type="submit" name="commit" class="btn btn-primary">Add category</button>
+      <br><br>    
+
+      <% end %>
+
+      <a href="/user"><i class="fas fa-undo-alt"></i> Back</a>
+      <div class="show-error">
       <% if flash[:error] %>
         <strong>
         <% flash[:error]%>
@@ -110,19 +123,6 @@
         <br> <br>
       <% end %>
       </div>
-      <div class="mx-auto" style="width: 450px;">
-      <div class='form-content'>
-      <h2>Add category</h2>
-      <%= form_for @category do |f| %>
-        <%= f.label :category_name %>
-        <%= f.text_field :name %>
-      <br><br>
-      <button type="submit" name="commit" class="btn btn-primary">Add category</button>
-      <br><br>    
-
-      <% end %>
-
-      <a href="/user"><i class="fas fa-undo-alt"></i> Back</a>
     </div>
     </div>
     </main>

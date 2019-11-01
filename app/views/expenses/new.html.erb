@@ -93,24 +93,6 @@
         </div>
       </div>
 
-      <div>
-      <% if flash[:error] %>
-        <strong>
-        <% flash[:error]%>
-        </strong>
-        <br><br> 
-      <% end %>
-      <% if flash[:errors] %>
-        <strong>
-        <% flash[:errors].each do |f| %>
-          <%= f %>
-          <br>
-        <%end%>
-        </strong>
-        <br> <br>
-      <% end %>
-      </div>
-
       <div class="mx-auto" style="width: 450px;">
       <div class='form-content'>
       <h2>Add expense</h2>
@@ -137,6 +119,25 @@
       <% end %>
 
       <a href="/user"><i class="fas fa-undo-alt"></i> Back</a>
+
+      <div class="show-error">
+      <% if flash[:error] %>
+        <strong>
+        <% flash[:error]%>
+        </strong>
+        <br><br> 
+      <% end %>
+      <% if flash[:errors] %>
+        <strong>
+        <% flash[:errors].each do |f| %>
+          <%= f %>
+          <br>
+        <%end%>
+        </strong>
+        <br> <br>
+      <% end %>
+      </div>
+
     </div>
     </div>
     </main>

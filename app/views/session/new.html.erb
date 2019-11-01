@@ -35,11 +35,6 @@
       <div class='form-content'>
         <h2>Login</h2>
 
-        <% if flash[:error] %>
-          <strong><%= flash[:error] %></strong>
-          <br> <br>
-        <% end %>
-
         <%= form_tag login_path do %>
 
           <%= label_tag :email %>
@@ -50,8 +45,15 @@
           <br><br>
           <button type="submit" name="commit" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i> Sign In</button>      
           <% end %>
+          <div class="show-error">
+          <% if flash[:error] %>
+            <strong><%= flash[:error] %></strong>
+            <br> <br>
+          <% end %>
           </div>
           </div>
+          </div>
+        
     </main>
   </div>
 </div>
