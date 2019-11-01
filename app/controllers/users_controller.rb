@@ -38,20 +38,23 @@ class UsersController < ApplicationController
     @show_size = @expenses.size.to_s
     @show_total_size = @user.expenses.size.to_s
     @expense = Expense.new
-
-    @used_categories = Category.where(:user_id => @current_user.id )
+    @used_categories = @user.categories
+    @allExpenses = @user.expenses
+    @totals = {}
 
     puts '+=+=+=+=+=+=+=+=+=+=+=+='
-    @used_categories.each do |category|
-      expenses = Expense.where(:user_id => @current_user.id ).where(:category_id => category.id )
-      @acc = 0
-      expenses.each do |value|
-        @acc += value.value.to_i
+
+    @allExpenses.each do |expense|
+      if not @totals[expense.category_id]
+        @totals[expense.category_id] = 0.0
       end
-      puts '-----'
-      puts @acc 
-      puts '-----'
+      @totals[expense.category_id] += expense.value.to_i
     end
+
+    puts '-----'
+    puts @totals.inspect
+    puts '-----'
+
     puts '+=+=+=+=+=+=+=+=+=+=+=+='
 
     @used_categories.each do |entry|

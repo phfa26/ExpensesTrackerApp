@@ -94,14 +94,16 @@
         </div>
       </div>
       
-      <% if flash[:error] %>
+      <div>
+        <% if flash[:error] %>
         <strong>
-          <% flash[:error].each do |p| %>
-            <%= p %><br>
+          <% flash[:error].each do |f| %>
+            <%= f %><br>
           <%end%>
         </strong>
         <br> <br>
       <% end %>
+      </div>
 
       <h1>Editing Expense</h1>
 

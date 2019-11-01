@@ -102,14 +102,7 @@
         </div>
       </div>
 
-      <% if flash[:error] %>
-        <strong>
-          <% flash[:error].each do |p| %>
-            <%= p %><br>
-          <%end%>
-        </strong>
-        <br> <br>
-      <% end %>
+
 
       <h4>My Latest Expenses</h4>
       <div class="table-responsive">
@@ -151,10 +144,12 @@
           </thead>
           <tbody>
             <% @used_categories.each do |category| %>
+             <% if @totals[category.id].to_i > 0 %>
               <tr>
                 <td><i class="fas fa-list"></i> <%= category.name %></td>
-                <td><i class="fas fa-dollar-sign"></i> <%= @acc %></td>
+                <td><i class="fas fa-dollar-sign"></i> <%= @totals[category.id] %></td>
               </tr>
+             <% end %>
             <% end %>
           </tbody>
         </table>

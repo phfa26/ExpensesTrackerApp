@@ -30,6 +30,7 @@ class ExpensesController < ApplicationController
         redirect_to user_path # go to the show page for this user 
       else
         flash[:error] = expense.errors.full_messages
+        redirect_to new_expense_path
       end
   end
       

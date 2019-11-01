@@ -92,12 +92,17 @@
         <div class="btn-toolbar mb-2 mb-md-0">
         </div>
       </div>
-
-      <h2>Add category</h2>
-      <% if flash[:error] %>
-        <strong><%= flash[:error] %></strong>
+      <div>
+        <% if flash[:error] %>
+        <strong>
+          <% flash[:error].each do |f| %>
+            <%= f %><br>
+          <%end%>
+        </strong>
         <br> <br>
       <% end %>
+      </div>
+      <h2>Add category</h2>
       <%= form_for @category do |f| %>
         <%= f.label :category_name %>
         <%= f.text_field :name %>

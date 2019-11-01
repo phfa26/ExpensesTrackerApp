@@ -93,16 +93,21 @@
         </div>
       </div>
 
-      <% if flash[:error] %>
+      <div>
+        <pre>
+          <%= flash.inspect %>
+        </pre>
+        <% if flash[:error] %>
         <strong>
-          <% flash[:error].each do |p| %>
-            <%= p %><br>
+          <% flash[:error].each do |f| %>
+            <%= f %><br>
           <%end%>
         </strong>
         <br> <br>
       <% end %>
+      </div>
 
-      <h1>Editing Category</h1>
+      <h1>Editing '<%=@category.name%>'</h1>
 
       <%= form_for @category,  method: :patch do |f| %>
         <%= f.label :new_name %>
