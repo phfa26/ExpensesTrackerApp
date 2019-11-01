@@ -6,5 +6,6 @@ class User < ApplicationRecord
     validates   :password, :presence => true,
                 :confirmation => true,
                 :length => {:within => 6..12},
-                :on => :create
+                :on => :create,
+                :on => :update
 end

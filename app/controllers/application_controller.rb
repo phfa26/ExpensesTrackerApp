@@ -14,10 +14,6 @@ class ApplicationController < ActionController::Base
       session[:user_id] = nil unless @current_user.present?
     end
   
-    # def authorize_user
-    #   redirect_to '/login' unless @current_user.present?
-    # end
-  
     def check_if_logged_in
       unless @current_user.present?
         flash[:error] = 'You must be logged in to see this page'

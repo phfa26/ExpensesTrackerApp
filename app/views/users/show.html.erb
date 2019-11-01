@@ -70,7 +70,7 @@
         </h6>
         <ul class="nav flex-column mb-2">
           <li class="nav-item">
-            <a class="nav-link" href="/categories/" data-toggle="modal" data-target="#exampleModalLive">
+            <a class="nav-link" href='/users/<%=@current_user.id.to_s%>/edit' data-toggle="modal" data-target="#exampleModalLive">
               <span data-feather="file-text"></span>
               <i class="far fa-edit"></i> Change password
             </a>
@@ -91,19 +91,27 @@
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2"> <%= @user.name %>'s Dashboard</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
-          <div class="btn-group mr-2">
-            <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
-          </div>
-          <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
-            <span data-feather="calendar"></span>
-            This week
-          </button>
         </div>
       </div>
 
-
-
+      <div>
+      <% if flash[:error] %>
+        <strong>
+        <% flash[:error]%>
+        </strong>
+        <br><br>
+      <% end %>
+      <% if flash[:errors] %>
+        <strong>
+        <% flash[:errors].each do |f| %>
+          <%= f %>
+          <br>
+        <%end%>
+        </strong>
+        <br> <br>
+      <% end %>
+      </div>
+      
       <h4>My Latest Expenses</h4>
       <div class="table-responsive">
         <table class="table table-striped table-sm">

@@ -11,9 +11,6 @@ class ExpensesController < ApplicationController
   end
   
   def create
-    puts "======================="
-    puts params.inspect
-    puts "======================="
     form_params = params.require(:expense).permit(:name, :when, :value, :category_id)
 
     expense = Expense.new 
@@ -29,7 +26,7 @@ class ExpensesController < ApplicationController
         # Expense added successfully!
         redirect_to user_path # go to the show page for this user 
       else
-        flash[:error] = expense.errors.full_messages
+        flash[:errors] = expense.errors.full_messages
         redirect_to new_expense_path
       end
   end
@@ -50,7 +47,7 @@ class ExpensesController < ApplicationController
       # Expense updated successfully!
       redirect_to user_path # go to the show page for this user 
     else
-      flash[:error] = expense.errors.full_messages
+      flash[:errors] = expense.errors.full_messages
       redirect_to "/expenses/#{expense.id.to_s}/edit"
     end
   end

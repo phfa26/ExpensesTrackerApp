@@ -7,8 +7,9 @@ Rails.application.routes.draw do
   delete '/login' => 'session#destroy'  # This will be the path users use to log-out.
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-  get '/user' => 'users#show' 
-  resources :users, except: [:index]
+  get '/user' => 'users#show'
+  patch '/users/:id/edit' => 'users#update'
+  resources :users, except: [:index, :update]
   resources :expenses
   resources :categories
 end

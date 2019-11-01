@@ -31,6 +31,8 @@
         </div>
       </div>
 
+      <div class="mx-auto" style="width: 450px;">
+      <div class='form-content'>
         <h2>Login</h2>
 
         <% if flash[:error] %>
@@ -45,9 +47,11 @@
           <br>
           <%= label_tag :password %>
           <%= password_field_tag :password, nil %>
-          <br>
-          <%= submit_tag 'Login' %>
-        <% end %>
+          <br><br>
+          <button type="submit" name="commit" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i> Sign In</button>      
+          <% end %>
+          </div>
+          </div>
     </main>
   </div>
 </div>

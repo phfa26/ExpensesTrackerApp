@@ -71,7 +71,7 @@
         </h6>
         <ul class="nav flex-column mb-2">
           <li class="nav-item">
-            <a class="nav-link" href="/categories/" data-toggle="modal" data-target="#exampleModalLive">
+            <a class="nav-link" href='/users/<%=@current_user.id.to_s%>/edit' data-toggle="modal" data-target="#exampleModalLive">
               <span data-feather="file-text"></span>
               <i class="far fa-edit"></i> Change password
             </a>
@@ -95,17 +95,25 @@
       </div>
       
       <div>
-        <% if flash[:error] %>
+      <% if flash[:error] %>
         <strong>
-          <% flash[:error].each do |f| %>
-            <%= f %><br>
-          <%end%>
+        <% flash[:error]%>
+        </strong>
+        <br><br>
+      <% end %>
+      <% if flash[:errors] %>
+        <strong>
+        <% flash[:errors].each do |f| %>
+          <%= f %>
+          <br>
+        <%end%>
         </strong>
         <br> <br>
       <% end %>
       </div>
-
-      <h1>Editing Expense</h1>
+      <div class="mx-auto" style="width: 450px;">
+      <div class='form-content'>
+      <h1>Edit Expense</h1>
 
       <%= form_for @expense,  method: :patch do |f| %>
         <%= f.label :name %>
@@ -120,16 +128,19 @@
 
       <select name="expense[category_id]" >
           <%= @categories.each do |category| %>
-              <option value="<%= category.id.to_s  %>"> - <%= category.name  %></option>
+              <option value="<%= category.id.to_s  %>"> <%= category.name  %></option>
           <% end %>
       </select>
-        <%= f.submit %>
+      <br><br>
+      <button type="submit" name="commit" class="btn btn-primary">Edit expense</button>
+      <br><br>   
       <% end %>
 
       <a rel="nofollow" data-method="delete" href="/expenses/<%= @expense.id.to_s %>"><i class="far fa-trash-alt"></i> Delete</a></td>
       |
       <a href="/user"><i class="fas fa-undo-alt"></i> Back</a>
-
+    </div>
+    </div>
     </main>
   </div>
 </div>

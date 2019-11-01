@@ -70,7 +70,7 @@
         </h6>
         <ul class="nav flex-column mb-2">
           <li class="nav-item">
-            <a class="nav-link" href="/categories/" data-toggle="modal" data-target="#exampleModalLive">
+            <a class="nav-link" href='/users/<%=@current_user.id.to_s%>/edit' data-toggle="modal" data-target="#exampleModalLive">
               <span data-feather="file-text"></span>
               <i class="far fa-edit"></i> Change password
             </a>
@@ -92,6 +92,24 @@
         <h1 class="h2"> <%= @user.name %>'s Expenses</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
         </div>
+      </div>
+
+      <div>
+      <% if flash[:error] %>
+        <strong>
+        <% flash[:error]%>
+        </strong>
+        <br><br> 
+      <% end %>
+      <% if flash[:errors] %>
+        <strong>
+        <% flash[:errors].each do |f| %>
+          <%= f %>
+          <br>
+        <%end%>
+        </strong>
+        <br> <br>
+      <% end %>
       </div>
 
       <h4>All Expenses</h4>

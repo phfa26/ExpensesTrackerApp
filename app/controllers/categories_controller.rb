@@ -29,10 +29,10 @@ class CategoriesController < ApplicationController
     @category.save
 
       if @category.save
-        flash[:error]=['Category successfully created! ']
+        flash[:error]='Category successfully created!'
         redirect_to '/categories'
       else
-        flash[:error]=@category.errors.full_messages
+        flash[:errors]=@category.errors.full_messages
         redirect_to '/categories/new'
       end
   end
@@ -45,12 +45,11 @@ class CategoriesController < ApplicationController
     category.name = form_params[:name] 
     category.save
     if category.save
-      flash[:error] = ['Category successfully updated!']
+      flash[:error] = 'Category successfully updated!'
       # Category updated successfully!
       redirect_to "/categories" # go to the show page for this user 
     else
-      flash[:error] = category.errors.full_messages
-      puts flash[:error]
+      flash[:errors] = category.errors.full_messages
       redirect_to "/categories/#{category.id.to_s}/edit"
     end
   end

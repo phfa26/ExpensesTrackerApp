@@ -42,20 +42,12 @@ class UsersController < ApplicationController
     @allExpenses = @user.expenses
     @totals = {}
 
-    puts '+=+=+=+=+=+=+=+=+=+=+=+='
-
     @allExpenses.each do |expense|
       if not @totals[expense.category_id]
         @totals[expense.category_id] = 0.0
       end
       @totals[expense.category_id] += expense.value.to_i
     end
-
-    puts '-----'
-    puts @totals.inspect
-    puts '-----'
-
-    puts '+=+=+=+=+=+=+=+=+=+=+=+='
 
     @used_categories.each do |entry|
 
@@ -67,15 +59,21 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find params[:id]
+    form_params = params.require(:user).permit(:password, :password_confirmation)
+
+    @user = @current_user
+    @user.password_digest = BCrypt::Password.create(form_params[:password_confirmation])
     @user.save
 
-    if @user.update(user_params)
-      redirect_to( user_path( @user.id ) )
+    if @user.save
+      flash[:error] = 'Password updated successfully! '
+      # Password updated successfully!
+      redirect_to user_path # go to the show page for this user 
     else
       flash[:errors] = @user.errors.full_messages
-      render :edit
+      redirect_to "/users/#{@user.id.to_s}/edit"
     end
+
   end
 
   def destroy
