@@ -22,3 +22,10 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+// todo:
+
+- Implement graphs by date and total for the respective date;
+- Graphs should only show dates between the latest and the newst expense;
+- Create a good read me file;
