@@ -1,16 +1,4 @@
 
-# Category.create(name:‘Auto & Transport’)
-# Category.create(name:‘Entertainment’)
-# Category.create(name:‘Education’)
-# Category.create(name:‘Personal Care’)
-# Category.create(name:‘Helth & Fitness’)
-# Category.create(name:‘Food & Dining’)
-# Category.create(name:‘Bills’)
-# Category.create(name:‘Groceries’)
-# Category.create(name:‘Rent’)
-# Category.create(name:‘Miscellaneous’)
-# Category.create(name:‘Others’)
-
 puts "CREATING USERS"
 
 usr1 = User.create(name: 'luke', password_digest: BCrypt::Password.create('Jedi'), email: 'luke@ga.com')
@@ -28,7 +16,7 @@ c1 = Category.create(name:'Auto & Transport', user_id: 1)
 c2 = Category.create(name:'Entertainment', user_id: 1)
 c3 = Category.create(name:'Education', user_id: 2)
 c4 = Category.create(name:'Personal Care', user_id: 2)
-c5 = Category.create(name:'Helth & Fitness', user_id: 1)
+c5 = Category.create(name:'Health & Fitness', user_id: 1)
 c6 = Category.create(name:'Food & Dining', user_id: 1)
 c7 = Category.create(name:'Bills', user_id: 1)
 c8 = Category.create(name:'Groceries', user_id: 3)

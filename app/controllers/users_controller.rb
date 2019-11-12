@@ -16,7 +16,7 @@ class UsersController < ApplicationController
       Category.create(name:'Entertainment', user_id: user.id)
       Category.create(name:'Education', user_id: user.id)
       Category.create(name:'Personal Care', user_id: user.id)
-      Category.create(name:'Helth & Fitness', user_id: user.id)
+      Category.create(name:'Health & Fitness', user_id: user.id)
       Category.create(name:'Food & Dining', user_id: user.id)
       Category.create(name:'Bills', user_id: user.id)
       Category.create(name:'Groceries', user_id: user.id)
