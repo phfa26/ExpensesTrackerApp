@@ -51,14 +51,14 @@ And of course Expenses Tracker App itself is open source with a [public reposito
    
    ### Screenshots
    
-![Screenshot 1](./screenshots/ScreenShot1)
-![Screenshot 2](./screenshots/ScreenShot2)
-![Screenshot 3](./screenshots/ScreenShot3)
-![Screenshot 4](./screenshots/ScreenShot4)
-![Screenshot 5](./screenshots/ScreenShot5)
-![Screenshot 6](./screenshots/ScreenShot6)
-![Screenshot 7](./screenshots/ScreenShot7)
-![Screenshot 8](./screenshots/ScreenShot8)
+![Screenshot 1](/screenshots/ScreenShot1)
+![Screenshot 2](/screenshots/ScreenShot2)
+![Screenshot 3](/screenshots/ScreenShot3)
+![Screenshot 4](/screenshots/ScreenShot4)
+![Screenshot 5](/screenshots/ScreenShot5)
+![Screenshot 6](/screenshots/ScreenShot6)
+![Screenshot 7](/screenshots/ScreenShot7)
+![Screenshot 8](/screenshots/ScreenShot8)
    
 
 
